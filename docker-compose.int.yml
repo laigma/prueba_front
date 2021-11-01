@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  intranet:
+    image: intranet:1.0.0
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile.int
+      args:
+        MODE: 'integration'
+    container_name: intranet-front
+    ports:
+      - 7082:80
